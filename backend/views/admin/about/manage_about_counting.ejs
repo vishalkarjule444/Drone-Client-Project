@@ -1,0 +1,76 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage About Counting</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/manage_about_counting" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Counting Heading</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="counting_heading"
+                            placeholder="Counting Heading">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Counting Class Name</label>
+                        <input type="text" class="form-control" id="slider_product_image" name="counting_class_name"
+                            placeholder="Counting Class Name">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Counting Number</label>
+                        <input type="number" class="form-control" id="slider_product_image" name="counting_number"
+                            placeholder="Counting Number">
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Save Counting</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped ">
+                        <tr class="bg-primary text-white">
+                            <th>Sr No.</th>
+                            <th>Action</th>
+                            <th>Counting Heading</th>
+                            <th>Counting Class Name</th>
+                            <th>Counting Number</th>
+
+                        </tr>
+                        <% for(var i=0;i<countings.length;i++){%>
+                            <tr>
+                                <td><%=i+1%></td>
+                                <td style="white-space: nowrap;">
+                                    <a href="/edit_about_counting/<%=countings[i].about_counting_id%>">
+                                        <button class="btn bg-primary m-0 btn-sm"><i class="fa fa-edit"></i></button>
+                                    </a><a href="/delete_about_counting/<%=countings[i].about_counting_id%>">
+                                        <button class="btn bg-danger btn-sm m-0" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=countings[i].counting_heading%>
+                                </td>
+                                <td>
+                                    <%=countings[i].counting_class_name%>
+                                </td>
+                                
+                                <td>
+                                    <%=countings[i].counting_number%>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <%-include("../footer.ejs")%>

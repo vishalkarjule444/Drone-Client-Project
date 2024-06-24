@@ -1,0 +1,57 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Our Mission</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_our_mission" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for=""> Our Mission Title</label>
+                <input type="text" name="our_mission_title" class="form-control" value="<%=our_mission_list[0].our_mission_title%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for=""> Our Mission Discription</label>
+                <textarea type="text" name="our_mission_disc"  class="form-control" ><%=our_mission_list[0].our_mission_disc%></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for=""> Our Mission Image</label>
+                <input type="file" name="our_mission_image"  class="form-control" value="<%=our_mission_list[0].our_mission_image%>" required>
+                
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Discription</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<our_mission_list.length;i++) {%>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=our_mission_list[i].our_mission_title%></td>
+                <td><%=our_mission_list[i].our_mission_disc%></td>
+                <td><img src="uploads/admin/services/our mission/<%=our_mission_list[i].our_mission_image%>" alt="" style="width:120px" ></td>
+
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

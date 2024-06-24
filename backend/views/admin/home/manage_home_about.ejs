@@ -1,0 +1,103 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage About</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/manage_about" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                  
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="about_button_text">About Heading</label>
+                        <input type="text" class="form-control" id="about_button_text" name="about_heading"
+                            placeholder="About Heading" value="<%=abouts[0].about_heading%>">
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="about_product_image">about Main Image</label>
+                        <input type="file" class="form-control" id="about_product_image" name="about_main_image"
+                            placeholder="Enter image URL">
+                    </div>
+                    <div class="col-md-2">
+                        <img src="/uploads/admin/<%=abouts[0].about_main_image%>" width="150" alt="">
+                    </div>
+                    <div class="col-md-2 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update About</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-3">
+                    <h1 class="heading">About Specializing Lists</h1>
+                </div>
+            </div>
+        </div>
+
+        <form action="/manage_sepecializing" method="post" enctype="multipart/form-data"">
+        <div class="container">
+            <div class="row mt-2 mb-2">
+                <div class="col-md-4">
+                    About Specializing Heading
+                    <input type="text" name="about_specializing_heading" class="form-control" placeholder="About Specializing Heading">
+                    </div>
+                <div class="col-md-4">
+                    About Specializing Description
+                    <textarea name="about_specializing_descption" class="form-control" placeholder="About Specializing Description" rows="1" id=""></textarea>
+                    </div>
+                <div class="col-md-4">
+                    About Specializing Image
+                    <input type="file" name="about_specializing_image" class="form-control" required>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button class="btn bg-primary">Save Specializing</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover table-striped ">
+                    <tr class="bg-primary text-white">
+                        <th>Sr No</th>
+                        <th>Action</th>
+                        <th>About Specializing Heading</th>
+                        <th>About Specializing Description</th>
+                        <th>About Specializing Image</th>
+                    </tr>
+                    <% for(var i=0;i<specials.length;i++){%>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td style="white-space: nowrap;">
+                                <a href="/edit_home_specialize/<%=specials[i].about_specializing_id%>">
+                                    <button class="btn bg-primary btn-sm"><i class="fa fa-edit"></i></button>
+                                </a><a href="/delete_home_specialise/<%=specials[i].about_specializing_id%>">
+                                    <button class="btn bg-danger btn-sm" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                </a>
+                            </td>
+                            <td>
+                                <%=specials[i].about_specializing_heading%>
+                            </td>
+                            
+                            <td>
+                                <%=specials[i].about_specializing_descption%>
+                            </td>
+                            <td><img src="/uploads/admin/<%=specials[i].about_specializing_image%>" alt="" width="200">
+                            </td>
+                        </tr>
+                        <%}%>
+                </table>
+            </div>
+        </div>
+    </div>
+<%-include("../footer.ejs")%>

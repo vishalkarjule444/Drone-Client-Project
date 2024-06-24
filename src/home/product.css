@@ -1,0 +1,127 @@
+/* product.css */
+
+/* Root variables */
+:root {
+  --first-color: hsl(38, 92%, 58%);
+  --first-color-light: hsl(38, 100%, 78%);
+  --first-color-alt: hsl(32, 75%, 50%);
+  --second-color: hsl(195, 75%, 52%);
+  --dark-color: hsl(212, 40%, 12%);
+  --white-color: hsl(212, 4%, 95%);
+  --container-color: hsl(212, 42%, 20%);
+}
+
+/* General styles for product container */
+.productcontainer {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Slider container */
+.product_slider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;/*  Enable horizontal scrolling */
+  padding: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Individual product slide */
+.product_slide {
+  width: calc(25% - 20px); /* Adjusted width for four cards per row with margins */
+  margin: 0 10px; /* Adjust margins as needed */
+  padding: 20px; /* Adjust padding as needed */
+  /* background-color: Light gray; */
+  position: relative;
+  border: 1px solid gray;
+  border-radius: 10px;
+  flex: 0 0 auto; /* Ensure flex items don't grow */
+}
+
+.product_slide img {
+  height: 200px; /* Maintain aspect ratio */
+  max-height: 100%; /* Set your desired maximum height */
+  width: 100%; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't exceed container width */
+  margin: 0 auto; /* Center align */
+  object-fit: contain; /* Ensure the whole image is visible */
+  border-radius: 10px; /* Rounded corners */
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+/* Zoomed image overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay img {
+  max-width: 90%; /* Adjust max-width as needed */
+  max-height: 90%; /* Adjust max-height as needed */
+  object-fit: contain; /* Ensure the whole image is visible */
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Controls for slider */
+.control-prev-btn,
+.control-next-btn {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(92, 88, 88, 0.5);
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  /* box-shadow: 0 1px 3px #888; */
+  user-select: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.control-prev-btn {
+  left: 10px; /* Adjust as needed */
+}
+
+.control-next-btn {
+  right: 10px; /* Adjust as needed */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+  .product_slide {
+    width: calc(33.33% - 20px); /* Three cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product_slide {
+    width: calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product_slide {
+    width: calc(100% - 20px); /* One card per row */
+    margin: 0 0 20px 0; /* Adjusted margin */
+  }
+}

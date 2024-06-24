@@ -1,0 +1,91 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Add Product</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped table-primary">
+                        <tr class="bg-primary text-white" style="white-space: nowrap;">
+                            <th>Sr No.</th>
+                            <th>Action</th>
+                            <th>Product Category</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Product Duplicate Price</th>
+                            <th>Product Size</th>
+                            <th>Product Color</th>
+                            <th>Product Image1</th>
+                            <th>Product Image2</th>
+                            <th>Product Image3</th>
+                            <th>Product Image4</th>
+                            <th>Product Information</th>
+                        </tr>
+                        <% products.map((val,i)=>{%>
+                            <tr>
+                                <td>
+                                    <%=i+1%>
+                                </td>
+                                <td style="white-space: nowrap;">
+                                    <a href="/update_product/<%=val.product_id%>">
+                                        <button class="btn bg-primary m-0 btn-sm"><i class="fa fa-edit"></i></button>
+                                    </a><a href="/delete_product/<%=val.product_id%>">
+                                        <button class="btn bg-danger btn-sm m-0" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=val.product_category%>
+                                </td>
+                                <td>
+                                    <%=val.product_name%>
+                                </td>
+                                <td>
+                                    <%=val.product_price%>
+                                </td>
+                                <td>
+                                    <%=val.duplicate_price%>
+                                </td>
+                                <td>
+                                    <%=val.product_size%>
+                                </td>
+                                <td>
+                                    <%=val.product_color%>
+                                </td>
+                                <td>
+                                    <img src="/uploads/product/<%=val.product_image1%>" width="100" alt="">
+                                </td>
+                                <td>
+                                    <img src="/uploads/product/<%=val.product_image2%>" width="100" alt="">
+                                </td>
+                                <td>
+                                    <img src="/uploads/product/<%=val.product_image3%>" width="100" alt="">
+                                </td>
+                                <td>
+                                    <img src="/uploads/product/<%=val.product_image4%>" width="100" alt="">
+                                </td>
+                                <td>
+                                    <%=val.product_information.slice(0,50)%>...
+                                </td>
+                            </tr>
+                            <%})%>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <%-include("../footer.ejs")%>

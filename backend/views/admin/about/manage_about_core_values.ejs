@@ -1,0 +1,63 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage About Cors Values</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/manage_about_cors_values" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_button_text">Cors Value Heading</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="cors_value_heading"
+                            placeholder="Cors Value Heading">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_product_image">Cors Value Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="cors_value_image"
+                            placeholder="Cors Value Image" required>
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Save Cors Values</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped ">
+                        <tr class="bg-primary text-white">
+                            <th>Sr No.</th>
+                            <th>Action</th>
+                            <th>Cors Value Heading</th>
+                            <th>Cors Value Image</th>
+
+                        </tr>
+                        <% for(var i=0;i<cors.length;i++){%>
+                            <tr>
+                                <td><%=i+1%></td>
+                                <td style="white-space: nowrap;">
+                                    <a href="/edit_about_cors_value/<%=cors[i].about_cors_values_id%>">
+                                        <button class="btn bg-primary btn-sm"><i class="fa fa-edit"></i></button>
+                                    </a><a href="/delete_about_cors_value/<%=cors[i].about_cors_values_id%>">
+                                        <button class="btn bg-danger btn-sm" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=cors[i].cors_value_heading%>
+                                </td>
+                                <td><img src="/uploads/admin/<%=cors[i].cors_value_image%>"  alt="" width="100">
+                                </td>
+                            </tr>
+                            <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%-include("../footer.ejs")%>

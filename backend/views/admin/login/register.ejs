@@ -1,0 +1,91 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+
+<style>
+   
+</style>
+<div class="container-fluid heading">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Add Admin </h2>
+        </div>
+    </div>
+</div>
+
+<form action="/save_admin" method="post">
+<div class="container">
+    <div class="row ">
+        <div class="container">
+            <div class="row ">
+                       
+                        <div class="col-md-6">
+                            <label for="">Enter Username</label>
+                        <input type="text" name="admin_username" class="form-control" placeholder="Your Username" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Enter Email</label>
+                        <input type="email" name="admin_email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Enter Mobile Number</label>
+                        <input type="text" name="admin_mobile" class="form-control" placeholder="Your Contact Number" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Enter Password</label>
+                            <input type="password" name="admin_password" class="form-control" placeholder="Password" required>
+                            <br>
+                        </div>
+                        
+                        
+                        <div class="col-md-12 text-center">
+                            <button class="btn bg-">Save</button>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container-fluid heading mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Admin List</h2>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered text-center mt-3">
+        <thead >
+            <tr>
+                <th>Action</th>
+                <th>S.N.</th>
+                <th>Username</th>
+                <th>Email Id</th>
+                <th>Mobile</th>
+                <th>Password</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0;i<admin_tbl_list.length;i++) {%>
+                <tr>
+                    <td style="width: 3%; white-space: nowrap;">
+                            
+                        <a href="/edit_admin/<%=admin_tbl_list[i].admin_id%>"><button class="bg-info"><i class="fa fa-edit text-white"></i></button></a>
+                        <a href="/delete_admin/<%=admin_tbl_list[i].admin_id%>" onclick="return confirm('ARE YOU SURE...?')"> <button class="bg-danger"><i class="fa fa-trash text-white"></i></button></a>
+    
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=admin_tbl_list[i].admin_username%></td>
+                    <td><%=admin_tbl_list[i].admin_email%></td>
+                    <td><%=admin_tbl_list[i].admin_mobile%></td>
+                    <td><%=admin_tbl_list[i].admin_password%></td>
+                </tr>
+           <% } %>
+        </tbody>
+        
+    </table>
+
+
+<%-include("../footer.ejs")%>

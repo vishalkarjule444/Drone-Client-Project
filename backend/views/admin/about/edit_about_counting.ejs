@@ -1,0 +1,38 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update About Counting</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_about_counting" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-2 mb-1">
+                        <input type="hidden" name="about_counting_id" id="" value="<%=countings[0].about_counting_id%>">
+                        <label for="slider_button_text">Counting Heading</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="counting_heading"
+                            placeholder="Counting Heading" value="<%=countings[0].counting_heading%>">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Counting Class Name</label>
+                        <input type="text" class="form-control" id="slider_product_image" name="counting_class_name"
+                            placeholder="Counting Class Name" value="<%=countings[0].counting_class_name%>">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Counting Number</label>
+                        <input type="number" class="form-control" id="slider_product_image" name="counting_number"
+                            placeholder="Counting Number" value="<%=countings[0].counting_number%>">
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Counting</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A2Z INFOTECH</title>
+    <style type="text/css">
+        .as {
+            aspect-ratio: 3/2;
+        }
+        .form-control {
+            border: 2px solid black !important;
+            border-radius: 10px;
+        }
+        label {
+            margin: 0px;
+            padding: 0px;
+            color: black !important;
+            font-size: 14px;
+        }
+        .stars {
+            color: red;
+            font-size: 15px;
+        }
+.heading {
+    background: linear-gradient(45deg, #685099 0%, #595591 60%, #4E5A8B 60%, #37627C 62%, #ffad26 62%, 63%, #d77045 63%, #d77045 64%, #ffad26 64%, #ffad26 65%, #525187 65%, white 80%) !important;
+    border-left: 5px solid #FFC241 !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 6px 10px 6px 10px !important;
+    border-radius: 5px !important;
+}
+    </style>
+    <link rel="stylesheet" type="text/css" href="/admin/ad_assest/css/style.css">
+    <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="/admin/ad_assest/css/vendors.bundle.css">
+    <link id="appbundle" rel="stylesheet" media="screen, print" href="/admin/ad_assest/css/app.bundle.css">
+    <link id="mytheme" rel="stylesheet" media="screen, print" href="#">
+    <link id="myskin" rel="stylesheet" media="screen, print" href="/admin/ad_assest/css/skins/skin-master.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/admin/ad_assest/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/admin/ad_assest/img/favicon/favicon-32x32.png">
+    <link rel="stylesheet" media="screen, print" href="/admin/ad_assest/css/notifications/toastr/toastr.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="mask-icon" href="/admin/ad_assest/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body class="mod-bg-1 mod-nav-link">
+    <script>
+        'use strict';
+
+        var classHolder = document.getElementsByTagName("BODY")[0],
+            themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) : {},
+            themeURL = themeSettings.themeURL || '',
+            themeOptions = themeSettings.themeOptions || '';
+
+        if (themeSettings.themeOptions) {
+            classHolder.className = themeSettings.themeOptions;
+            console.log("%c✔ Theme settings loaded", "color: #148f32");
+        } else {
+            console.log("%c✔ Heads up! Theme settings is empty or does not exist, loading default settings...", "color: #ed1c24");
+        }
+
+        if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+            var cssfile = document.createElement('link');
+            cssfile.id = 'mytheme';
+            cssfile.rel = 'stylesheet';
+            cssfile.href = themeURL;
+            document.getElementsByTagName('head')[0].appendChild(cssfile);
+        } else if (themeSettings.themeURL && document.getElementById('mytheme')) {
+            document.getElementById('mytheme').href = themeSettings.themeURL;
+        }
+
+        var saveSettings = function() {
+            themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item) {
+                return /^(nav|header|footer|mod|display)-/i.test(item);
+            }).join(' ');
+
+            if (document.getElementById('mytheme')) {
+                themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+            }
+
+            localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+        }
+
+        var resetSettings = function() {
+            localStorage.setItem("themeSettings", "");
+        }
+        
+    </script>
+    
+    <!-- BEGIN Page Wrapper -->
+    <div class="page-wrapper">
+        <div class="page-inner">
+            <!-- BEGIN Left Aside -->
+            <aside class="page-sidebar">
+                <div class="page-logo">
+                    <a href="/" class="page-logo-link press-scale-down d-flex align-items-center position-relative">
+                        <img src="/admin/ad_assest/img/demo/avatars/a2z-logo.jpg" alt="Loan Manage" aria-roledescription="logo" style="border-radius: 50%;">
+                        <span class="page-logo-text mr-1">Bharat Drone Website</span>
+                        <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+                    </a>
+                </div>
+                <!-- BEGIN PRIMARY NAVIGATION -->
+                <nav id="js-primary-nav" class="primary-nav" role="navigation">
+                    <ul id="js-nav-menu" class="nav-menu">
+                        
+                        <li class="">
+                            <a href="/order_lists">
+                                <i class="fal fa-bars"></i>
+                                <span class="nav-link-text">Order Lists</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="/get_inquiry_form">
+                                <i class="fal fa-bars"></i>
+                                <span class="nav-link-text">Enquiry List</span>
+                            </a>
+                        </li>                        
+                        <li class="">
+                            <a href="/newsletters">
+                                <i class="fal fa-bars"></i>
+                                <span class="nav-link-text">Newsletterr Lists</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="/add_product">
+                                <i class="fal fa-plus"></i>
+                                <span class="nav-link-text">Add Product</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="/product_lists">
+                                <i class="fal fa-bars"></i>
+                                <span class="nav-link-text">Product Lists</span>
+                            </a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="/inquiry_list">
+                                <i class="fal fa-bars"></i>
+                                <span class="nav-link-text">Contact Lists</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#">
+                                <i class="fal fa-cog"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="/manage_home_slider">
+                                        <span class="nav-link-text">Manage Slider</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/manage_home_about">
+                                        <span class="nav-link-text">Manage About</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/manage_key_features">
+                                        <span class="nav-link-text">Manage Key Features</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/manage_home_benifits">
+                                        <span class="nav-link-text">Manage Benifits</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/manage_home_sale">
+                                        <span class="nav-link-text">Manage Home Grand Sale Offer</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/manage_home_new_features">
+                                        <span class="nav-link-text">Manage Home New Features</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/manage_home_client_says">
+                                        <span class="nav-link-text">Manage Home Client Says</span>
+                                    </a>
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fal fa-cog"></i>
+                            <span class="nav-link-text">About</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/manage_about_slider">
+                                    <span class="nav-link-text">Manage Slider</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/manage_about_mission">
+                                    <span class="nav-link-text">Manage Mission And Vision</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/manage_about_core_values">
+                                    <span class="nav-link-text">Manage Core Values</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/manage_about_counting">
+                                    <span class="nav-link-text">Manage Counting</span>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="/manage_about_team">
+                                    <span class="nav-link-text">Manage Team</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                </li>
+                    <li class="">
+                        <a href="#">
+                            <i class="fal fa-cog"></i>
+                            <span class="nav-link-text">Gallery</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/gallery_header">
+                                    <span class="nav-link-text">Gallery Header</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/gallery_image">
+                                    <span class="nav-link-text">Gallery Images</span>
+                                </a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#">
+                            <i class="fal fa-cog"></i>
+                            <span class="nav-link-text">Services</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/services_header">
+                                    <span class="nav-link-text">Services Header</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/what_we_offer">
+                                    <span class="nav-link-text">What We Offer</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/our_vision">
+                                    <span class="nav-link-text">Our Vision</span>
+                                </a>
+                            <li>
+                                <a href="/our_mission">
+                                    <span class="nav-link-text">Our Mission</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/service_card">
+                                    <span class="nav-link-text">Service Cards</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fal fa-cog"></i>
+                            <span class="nav-link-text">Contact</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="/contact_header">
+                                    <span class="nav-link-text">Contact Header</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact_info">
+                                    <span class="nav-link-text">Contact Information</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact_map">
+                                    <span class="nav-link-text">Office Location</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contact_www">
+                                    <span class="nav-link-text">We Work With</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                </li>
+                    </ul>
+                    <div class="filter-message js-filter-message bg-success-600"></div>
+                </nav>
+            </aside>
+            <!-- END Left Aside -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN Page Header -->
+                
+                <!-- Page content goes here -->
+            </main>
+            <!-- this overlay is activated only when mobile menu is triggered -->
+            <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div> 
+            <!-- END Page Content -->

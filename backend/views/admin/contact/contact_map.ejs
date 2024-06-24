@@ -1,0 +1,27 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Contact Map</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_contact_map" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="">location url</label>
+                <p>*Note - write iframe src only</p>
+                <input type="text" name="location" class="form-control" value="<%=contact_map_list[0].location%>" >
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("../footer.ejs")%>

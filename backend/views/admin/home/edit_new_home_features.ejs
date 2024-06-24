@@ -1,0 +1,39 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update New Features</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_home_new_features" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <input type="hidden" name="home_new_features_id" value="<%=new_featues[0].home_new_features_id%>">
+                        <label for="slider_heading">New Features Heading</label>
+                        <input type="text" class="form-control" id="slider_heading" name="new_features_heading"
+                            placeholder="New Features Heading" value="<%=new_featues[0].new_features_heading%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_sub_heading">New Featues Sub Heading</label>
+                        <input type="text" class="form-control" id="slider_sub_heading" name="new_features_sub_heading"
+                            placeholder="New Featues Sub Heading" value="<%=new_featues[0].new_features_sub_heading%>">
+                    </div>
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_product_image">New Features Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="new_features_image"
+                            placeholder="Enter image URL">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/uploads/admin/<%=new_featues[0].new_features_image%>" width="100" alt="">
+                    </div>
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn bg-primary" type="submit">Update New Features</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

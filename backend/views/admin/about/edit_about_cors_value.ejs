@@ -1,0 +1,34 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update About Cors Values</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_about_cors_values" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-2 mb-1">
+                        <input type="hidden" name="about_cors_values_id" id="" value="<%=cors[0].about_cors_values_id%>">
+                        <label for="slider_button_text">Cors Value Heading</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="cors_value_heading"
+                            placeholder="Cors Value Heading" value="<%=cors[0].cors_value_heading%>">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Cors Value Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="cors_value_image"
+                            placeholder="Cors Value Image">
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <img src="/uploads/admin/<%=cors[0].cors_value_image%>" alt="">
+                    </div>
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Cors Values</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

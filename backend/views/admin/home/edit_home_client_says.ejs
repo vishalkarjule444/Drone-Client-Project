@@ -1,0 +1,48 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update Client Says</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_client_says" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+
+                        <label for="slider_heading">Client Name</label>
+                        <input type="hidden" name="home_client_says_id" value="<%=clients[0].home_client_says_id%>">
+                        <input type="text" class="form-control" id="slider_heading" name="client_name"
+                            placeholder="Client Name" value="<%=clients[0].client_name%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_sub_heading">Client Profession</label>
+                        <input type="text" class="form-control" id="slider_sub_heading" name="client_profession"
+                            placeholder="Client Profession" value="<%=clients[0].client_profession%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_button_text">What Client Says</label>
+                        <textarea type="text" class="form-control" rows="1" id="slider_button_text" name="what_client_says"
+                            placeholder="What Client Says"><%=clients[0].what_client_says%></textarea>
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_product_name">Client Image</label>
+                        <input type="file" class="form-control" id="slider_button_text" name="client_image"
+                        placeholder="Enter button text">
+                    </div>
+                    
+                    <div class="col-md-12 text-center mt-2 mb-1">
+                        <img src="/uploads/admin/<%=clients[0].client_image%>" width="100" alt="">
+                    </div>
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Client Says</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

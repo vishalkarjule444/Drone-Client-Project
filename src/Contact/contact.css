@@ -1,0 +1,243 @@
+/* *{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    background-color: rgb(250, 250, 240);
+}
+
+i:hover{
+    transform: scale(1.1);
+}
+
+/* container_head  */
+body{
+    overflow-x: hidden;
+}
+
+.container_head{
+    height: 600px;
+    padding: 0%;
+    /* background-image: linear-gradient(red,black,black); */
+    /* background-color: red; */
+    margin-bottom: 100px;
+    
+}
+/* .container_head img{
+     filter:drop-shadow( 2px 2px 50px rgb(93, 33, 33) );
+     
+} */
+.container_info {
+    height: 600px;
+    position: relative;
+    bottom: 600px;
+    /* left: 0px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background-color:rgba(33, 33, 33,0.5)
+   
+   
+}
+
+.container_info h1{
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: white !important;
+    margin-top: 40px;
+    /* text-shadow: 4px 2px  10px; */
+    position: relative;
+    left: -27%;
+}
+.container_info p{
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: white !important;
+    margin-top: 40px;
+    /* text-shadow: 4px 2px  10px; */
+    position: relative;
+    left: -47%;
+    top: 11%;
+}
+
+@media (max-width:650px) {
+   
+    
+.container_info h1{
+    font-size: 30px;
+    position: relative;
+    left: 0%;
+}
+.container_info p{
+    font-size: 30px;
+    position: relative;
+    left: -47%;
+    top: 11%;
+}
+}
+
+
+
+
+/* contact form   */
+.contact_form_img{
+    /* background-color: red; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    /* height: 100px; */
+  
+
+}
+.contact_form_img .col-md-2{
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+    background-color: green;
+    border-radius: 50%;
+
+}
+.contact_form_img .col-md-2:hover{
+        transform: scale(1.1);
+}
+.contact_form_img i{
+    font-size: 60px;
+    margin-top: 25px;
+    margin-left: -5px;
+    color: white;
+}
+
+
+.contact_form{
+    border: 2px solid green;
+    margin-right: 10px;
+    padding: 20px;
+    
+    border-radius: 10px;
+}
+.contact_form input{
+    margin-bottom: 20px;
+    /* border-radius: 0%; */
+    height: 60px;
+    background-color:  rgb(233, 245, 201);
+    border: 2px solid green;
+    box-sizing: border-box; 
+}
+.contact_form textarea{
+    margin-bottom: 20px;
+    /* border-radius: 0%; */
+    height: 100px;
+    background-color: rgb(233, 245, 201);
+    border: 2px solid green;
+    
+}
+.contact_form button{
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+    padding-inline-start: 25px;
+    padding-inline-end: 25px;
+    /* font-weight: bold; */
+    /* border-radius: 0%; */
+    background-color: green;
+}
+.contact_form button:hover{
+  
+    background-color: beige;
+    color: green;
+    border: 2px solid green;
+    box-sizing: border-box;
+    box-shadow: 1px 2px  green;
+    font-weight: 600;
+}
+
+
+.contact_form input:hover{
+    background-color: beige;
+}
+.contact_form textarea:hover{
+    background-color: beige;
+}
+
+/* contact_info */
+
+.contact_info{
+    /* border: 2px solid #1a8754; */
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color:rgb(42, 109, 42);
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.contact_info i{
+    color: green;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color:white;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.contact_info h3{
+    color: white;
+}
+.contact_info p{
+    color: white;
+}
+
+
+.work_with{
+    margin-top: 100px !important;
+}
+
+.work_with .col-md-2{
+
+    /* border: 2px solid #949612 ; */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px ;
+  
+
+}
+.work_with h2{
+    color: green;
+}
+.work_with img{
+    filter: invert(50%) !important;
+}
+.work_with img:hover{
+
+    text-align: center;
+    filter: invert(0%) !important;
+    transform: scale(1.1);
+
+}
+
+@media (max-width:650px) {
+    .work_with img{
+        transform: scale(0.6);
+    }
+    .work_with img:hover{
+
+        text-align: center;
+        filter: invert(0%) !important;
+        transform: scale(0.8);
+    
+    }
+    
+    }
+    
+
+
+/* .hidden{
+    opacity:0;
+}
+.show{
+    opacity: 1;
+} */
+

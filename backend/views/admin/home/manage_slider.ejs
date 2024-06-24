@@ -1,0 +1,112 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage Slider</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/save_home_slider" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+
+                        <label for="slider_heading">Slider Heading</label>
+                        <input type="text" class="form-control" id="slider_heading" name="slider_heading"
+                            placeholder="Enter slider heading">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_sub_heading">Slider Sub Heading</label>
+                        <input type="text" class="form-control" id="slider_sub_heading" name="slider_sub_heading"
+                            placeholder="Enter slider sub heading">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Slider Button Text</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="slider_button_text"
+                            placeholder="Enter button text">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_name">Slider Product Name</label>
+                        <select class="form-control" id="slider_product_name" name="slider_product_name">
+                            <option value="" disabled selected>Choose Now</option>
+                            <% for(var i=0;i<products.length;i++){%>
+                            <option value="<%=products[i].product_id%>"><%=products[i].product_category%></option>
+                            <%}%>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Slider Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="slider_product_image"
+                            placeholder="Enter image URL">
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1">
+                        <label for="slider_description">Slider Description</label>
+                        <textarea class="form-control" id="slider_description" name="slider_description"
+                            placeholder="Enter slider description"></textarea>
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Save Slider</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped ">
+                        <tr class="bg-primary text-white">
+                            <th>Action</th>
+                            <th>Slider Heading</th>
+                            <th>Sub Heading</th>
+                            <th>Button Text</th>
+                            <th>Product Name</th>
+                            <th>Slider Image</th>
+                            <th>Slider Description</th>
+                        </tr>
+                        <% for(var i=0;i<slides.length;i++){%>
+                            <tr>
+                                <td style="white-space: nowrap;">
+                                    <a href="/edit_home_slider/<%=slides[i].home_slider_id%>">
+                                        <button class="btn bg-primary btn-sm"><i class="fa fa-edit"></i></button>
+                                    </a><a href="/delete_home_slider/<%=slides[i].home_slider_id%>">
+                                        <button class="btn bg-danger btn-sm" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=slides[i].slider_heading%>
+                                </td>
+                                <td>
+                                    <%=slides[i].slider_sub_heading%>
+                                </td>
+                                <td>
+                                    <%=slides[i].slider_button_text%>
+                                </td>
+                                <td>
+                                    <% for(var j = 0; j < products.length; j++) { %>
+                                        <% if(products[j].product_id == slides[i].slider_product_name) { %>
+                                            <%= products[j].product_category %>
+                                        <% } %>
+                                    <% } %>
+                                    
+                                </td>
+                                <td><img src="/uploads/admin/<%=slides[i].slider_product_image%>" alt="" width="200">
+                                </td>
+                                <td>
+                                    <%=slides[i].slider_description%>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%-include("../footer.ejs")%>

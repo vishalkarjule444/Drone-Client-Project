@@ -1,0 +1,32 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update Key Features</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_key_featues" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_button_text">Key Features Heading</label>
+                        <input type="hidden" name="key_features_id" value="<%=features[0].key_features_id%>">
+                        <input type="text" class="form-control" id="slider_button_text" name="key_features_heading"
+                            placeholder="Key Features Heading" value="<%=features[0].key_features_heading%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_product_image">Key Features Icon(font-awesome class eg:- fa fa-trash)</label>
+                        <input type="text" class="form-control" id="slider_product_image" name="key_features_icon"
+                            placeholder="Key Features Icon(font-awesome class eg:- fa fa-trash)"  value="<%=features[0].key_features_icon%>">
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Key Features</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

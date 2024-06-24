@@ -1,0 +1,60 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Service Card</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/save_service_card" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <label for=""> Service Card Title</label>
+                <input type="text" name="service_card_title" class="form-control"   >
+            </div>
+            <div class="col-md-6">
+                <label for=""> Service Card Image</label>
+                <input type="file" name="service_card_image"  class="form-control"  required>
+                
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+
+            <th>Action</th>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<service_card_list.length;i++) {%>
+            <tr>
+                <td style="width: 3%; white-space: nowrap;">
+                            
+                    <a href="/edit_service_card/<%=service_card_list[i].service_card_id%>"><button class="bg-info"><i class="fa fa-edit text-white"></i></button></a>
+                    <a href="/delete_service_card/<%=service_card_list[i].service_card_id%>" onclick="return confirm('ARE YOU SURE...?')"> <button class="bg-danger"><i class="fa fa-trash text-white"></i></button></a>
+
+                </td>
+                <td><%=i+1%></td>
+                <td><%=service_card_list[i].service_card_title%></td>
+                <td><img src="uploads/admin/services/service card/<%=service_card_list[i].service_card_image%>" alt="" style="width:120px" ></td>
+
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

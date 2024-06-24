@@ -1,0 +1,93 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Add Product</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/save_product" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_name">Slider Product Name</label>
+                        <select class="form-control" id="slider_product_name" name="slider_product_name">
+                            <option value="" disabled selected>Choose Now</option>
+                            <option value="drone1">Drone 1</option>
+                            <option value="drone2">Drone 2</option>
+                            <option value="drone3">Drone 3</option>
+                            <option value="drone4">Drone 4</option>
+                        </select>
+                    </div> -->
+                    <div class="col-md-3 mt-2 mb-1">
+                        <label for="slider_heading">Product Category</label>
+                        <input type="text" class="form-control" id="slider_heading" name="product_category"
+                            placeholder="Product Category">
+                    </div>
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Product Name</label>
+                        <input type="text" class="form-control" id="slider_heading" name="product_name"
+                            placeholder="Product Name">
+                    </div>
+                    <div class="col-md-3 mt-2 mb-1">
+                        <label for="slider_heading">Product Price</label>
+                        <input type="text" class="form-control" id="slider_heading" name="product_price"
+                            placeholder="Product Price">
+                    </div>
+                    
+                    <div class="col-md-3 mt-2 mb-1">
+                        <label for="slider_heading">Product Duplicate Price</label>
+                        <input type="text" class="form-control" id="slider_heading" name="duplicate_price"
+                            placeholder="Product Duplicate Price">
+                    </div>
+                    
+                    <div class="col-md-3 mt-2 mb-1">
+                        <label for="slider_heading">Product Size</label>
+                        <input type="text" class="form-control" id="slider_heading" name="product_size"
+                            placeholder="Product Size">
+                    </div>
+                    <div class="col-md-2 mt-2 mb-1">
+                        <label for="slider_heading">Product Color</label>
+                        <input type="color" class="form-control" id="slider_heading" name="product_color"
+                            placeholder="Product Color">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Product Image1</label>
+                        <input type="file" class="form-control" id="slider_heading" name="product_image1"
+                            placeholder="Product Information" required>
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Product Image2</label>
+                        <input type="file" class="form-control" id="slider_heading" name="product_image2"
+                            placeholder="Product Information">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Product Image3</label>
+                        <input type="file" class="form-control" id="slider_heading" name="product_image3"
+                            placeholder="Product Information">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Product Image4</label>
+                        <input type="file" class="form-control" id="slider_heading" name="product_image4"
+                            placeholder="Product Information">
+                    </div>
+                    <div class="col-md-12 mt-2 mb-1">
+                        <label for="slider_heading">Product Information</label>
+                        <textarea type="color" class="form-control" id="slider_heading" name="product_information"
+                            placeholder="Product Information"></textarea>
+                    </div>
+                    
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Save Product</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <%-include("../footer.ejs")%>

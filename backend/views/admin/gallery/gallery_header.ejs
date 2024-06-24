@@ -1,0 +1,49 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Gallery Header</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_gallery_header" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Header Title</label>
+                <input type="text" name="header_title" class="form-control" value="<%=gallery_header_list[0].header_title%>">
+            </div>
+            <div class="col-md-6">
+                <label for="">Header Image</label>
+                <input type="file" name="header_image"  class="form-control" value="<%=gallery_header_list[0].header_image%>" required>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<gallery_header_list.length;i++) {%>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=gallery_header_list[i].header_title%></td>
+                <td><img src="uploads/admin/gallery/header/<%=gallery_header_list[i].header_image%>" alt="" style="width:120px" ></td>
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

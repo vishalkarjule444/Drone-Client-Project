@@ -1,0 +1,57 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Our Vision</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_our_vision" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for=""> Our vision Title</label>
+                <input type="text" name="our_vision_title" class="form-control" value="<%=our_vision_list[0].our_vision_title%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for=""> Our vision Discription</label>
+                <textarea type="text" name="our_vision_disc"  class="form-control" ><%=our_vision_list[0].our_vision_disc%></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for=""> Our vision Image</label>
+                <input type="file" name="our_vision_image"  class="form-control" value="<%=our_vision_list[0].our_vision_image%>" required>
+                
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Discription</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<our_vision_list.length;i++) {%>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=our_vision_list[i].our_vision_title%></td>
+                <td><%=our_vision_list[i].our_vision_disc%></td>
+                <td><img src="uploads/admin/services/our vision/<%=our_vision_list[i].our_vision_image%>" alt="" style="width:120px" ></td>
+
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

@@ -1,0 +1,49 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Add Product</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped table-primary">
+                        <tr class="bg-primary text-white" style="white-space: nowrap;">
+                            <th>Sr No.</th>
+                            <th>Action</th>
+                            <th>Newsletterrs Name</th>
+                            <th>Newsletterrs Email</th>
+                        </tr>
+                        <% newsletterrs.map((val,i)=>{%>
+                            <tr>
+                                <td>
+                                    <%=i+1%>
+                                </td>
+                                <td>
+                                </a><a href="/delete_newsletters/<%=val.newsletters_id%>">
+                                    <button class="btn bg-danger btn-sm" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                </a>
+                                </td>
+                                <td><%=val.newsletters_name%></td>	
+                                <td><%=val.newsletters_email%></td>	
+                            </tr>
+                            <%})%>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <%-include("../footer.ejs")%>

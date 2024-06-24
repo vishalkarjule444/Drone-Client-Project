@@ -1,0 +1,28 @@
+/* Slider Container */
+.slider-container {
+    background:no-repeat;
+    filter: brightness(100%);
+    background-size:100% 100%;
+  }
+  
+  /* Slider Row */
+  .slider-row {
+    padding:150px 0px 150px 50px; /* Adjust as needed */
+  }
+  
+  /* Slider Heading */
+  .slider-heading {
+    color: #1B5E20;
+    font-size: 2.3rem;
+    font-weight: 500;
+  }
+  
+  /* Slider Title */
+  .slider-title {
+    font-size: 3.3rem;
+    margin-bottom: 20px; 
+    font-weight: 900;
+    color: rgb(7, 96, 7);
+  }
+  
+

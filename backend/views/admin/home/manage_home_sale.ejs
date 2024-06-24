@@ -1,0 +1,61 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage Grand Sale Offer</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/manage_home_sale" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_name">Grand Sale For</label>
+                        <select class="form-control" id="slider_product_name" name="grand_sale_product_name">
+                            <option value="" disabled>Choose Now</option>
+                            <%for(var i=0;i<products.length;i++){%>
+                                <option value="<%=products[i].product_id%>" <%=(sales[0].grand_sale_product_name==products[i].product_id)?'selected':''%>><%=products[i].product_name%></option>                                
+                            <%}%>
+                        </select>
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Grand Sale Heading</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="grand_sale_heading"
+                            placeholder="Grand Sale Heading" value="<%=sales[0].grand_sale_heading%>">
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Grand Sale Button Text</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="grand_sale_button_text"
+                            placeholder="Grand Sale Button Text" value="<%=sales[0].grand_sale_button_text%>">
+                    </div>
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_button_text">Grand Sale Image</label>
+                        <input type="file" class="form-control" id="slider_button_text" name="grand_sale_image"
+                            placeholder="Grand Sale Button Text" value="<%=sales[0].grand_sale_image%>">
+                    </div>
+                    
+                    <div class="col-md-6 mt-2 mb-1">    
+                    <img src="/uploads/admin/<%=sales[0].grand_sale_image%>" width="150" alt="grand sale Image">
+                </div>
+                    
+                    <div class="col-md-12 mt-2 mb-1">
+                        <label for="slider_product_image">Grand Sale Description</label>
+                        <textarea type="text" class="form-control" id="slider_product_image" name="grand_sale_description"
+                            placeholder="Grand Sale Description" rows="1"><%=sales[0].grand_sale_description%></textarea>
+                    </div>
+                    
+                    <div class="col-md-12 mt-2 mb-1">
+                        <label for="slider_product_image">Grand Sale Sub Description</label>
+                        <textarea type="text" class="form-control" id="slider_product_image" name="grand_sale_sub_description"
+                            placeholder="Grand Sale Sub Description" rows="1"><%=sales[0].grand_sale_sub_description%></textarea>
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Grand Sale Offers</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <%-include("../footer.ejs")%>

@@ -1,0 +1,38 @@
+.t-head{
+    text-align: center;
+    color: rgb(7, 96, 7);
+    font-weight: 800;
+    font-family:  Helvetica, Arial, sans-serif;
+}
+.t-text{
+    margin-top: 20px;
+    /* color: white; */
+    color:black !important;
+}
+.t-img{
+    /* box-shadow:  rgb(7, 96, 7) 0px 1px 5px 5px; */
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.titlecardss{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 20px;
+    transition: transform 1s;
+    color:black !important;
+    border-radius: 10px !important;
+}
+.titlecardss:hover{
+    transform: scale(1.1);
+    background-color: #4CAF50;
+    color: white !important;
+}
+
+.titlecardss:hover .t-img{
+    transform: scale(1.1);
+    background-color: #4CAF50;
+    color: white !important;
+    box-shadow: 1px 1px 5px 1px white;
+}
+.t-content{
+    margin-left:8%;
+    margin-right: 8%;
+}

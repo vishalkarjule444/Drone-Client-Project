@@ -1,0 +1,49 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage  What We Offer</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_what_we_offer" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for=""> What We Offer Title</label>
+                <input type="text" name="wwo_title" class="form-control" value="<%=what_we_offer_list[0].wwo_title%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for=""> What We Offer Discription</label>
+                <textarea type="text" name="wwo_disc"  class="form-control" ><%=what_we_offer_list[0].wwo_disc%></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Discription</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<what_we_offer_list.length;i++) {%>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=what_we_offer_list[i].wwo_title%></td>
+                <td><%=what_we_offer_list[i].wwo_disc%></td>
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

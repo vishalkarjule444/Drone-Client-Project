@@ -1,0 +1,61 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Add Product</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped table-primary">
+                        <tr class="bg-primary text-white" style="white-space: nowrap;">
+                            <th>Sr No.</th>
+                            <th>Open Product</th>
+                            <th>Product Name</th>
+                            <th>User Name</th>
+                            <th>User Email</th>
+                            <th>User Mobile</th>
+                            <th>User Address</th>
+                            <th>User Country</th>
+                            <th>User City</th>
+                            <th>User Postalcode</th>
+                        </tr>
+                        <% orders.map((val,i)=>{%>
+                            <tr>
+                                <td>
+                                    <%=i+1%>
+                                </td>
+                                <td style="white-space: nowrap;" class="p-0 text-center">
+                                    <a href="/open_product/<%=val.product_id%>">
+                                    <button class="btn btn-sm bg-primary">Open</button>
+                                </a>
+                                </td>	
+                                <td><%=val.product_name%></td>	
+                                <td><%=val.name%></td>	
+                                <td><%=val.email%></td>	
+                                <td><%=val.phone%></td>	
+                                <td><%=val.address%></td>	
+                                <td><%=val.country%></td>	
+                                <td><%=val.city%></td>	
+                                <td><%=val.postalCode%></td>	
+                            </tr>
+                            <%})%>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <%-include("../footer.ejs")%>

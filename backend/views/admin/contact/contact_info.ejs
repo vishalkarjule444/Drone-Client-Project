@@ -1,0 +1,52 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Contact Information</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_contact_info" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="">Phone</label>
+                <input type="text" name="phone" class="form-control" value="<%=contact_info_list[0].phone%>"  >
+            </div>
+            <div class="col-md-3">
+                <label for="">Email</label>
+                <input type="email" name="email"  class="form-control" value="<%=contact_info_list[0].email%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for="">Address</label>
+                <textarea type="text" name="address"  class="form-control" ><%=contact_info_list[0].address%></textarea>
+            </div>
+            <div class="col-md-6">
+                <label for="">Facebook Url</label>
+                <input type="text" name="facebook"  class="form-control" value="<%=contact_info_list[0].facebook%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for="">Twitter Url</label>
+                <input type="text" name="twitter"  class="form-control" value="<%=contact_info_list[0].twitter%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for="">LinkedIn Url</label>
+                <input type="text" name="linkedin"  class="form-control" value="<%=contact_info_list[0].linkedin%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for="">Instagram Url</label>
+                <input type="text" name="instagram"  class="form-control" value="<%=contact_info_list[0].instagram%>"  >
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+  
+<%-include("../footer.ejs")%>

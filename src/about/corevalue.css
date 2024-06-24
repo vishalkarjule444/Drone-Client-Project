@@ -1,0 +1,62 @@
+.container-fluid.core-container {
+    background-color: #E6E6FA;
+    padding: 20px 0;
+  }
+  
+  .head {
+    text-align: center;
+    color: rgb(7, 96, 7);
+    font-weight: 800;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Ensure items are centered vertically */
+  }
+  
+  .corecard-container {
+    flex: 1 1 calc(33.33% - 30px); /* Adjust the flex basis to maintain spacing */
+    max-width: 280px; /* Ensures consistent card width */
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .corecard {
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    background-color: #4CAF50;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 20px;
+    transition: transform .2s;
+  }
+  
+  .corecard:hover {
+    transform: scale(1.1);
+  }
+  
+  .core-img {
+    width: 100%;
+    height: auto;
+    box-shadow: rgba(17, 12, 46, 0.15) 30px 100px 100px 0px;
+  }
+  
+  .core-text {
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 1200px) {
+    .corecard-container {
+      flex: 1 1 calc(50% - 30px); /* Adjust for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .corecard-container {
+      flex: 1 1 calc(100% - 30px); /* Adjust for small screens */
+    }
+  }
+  

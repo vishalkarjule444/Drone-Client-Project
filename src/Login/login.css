@@ -1,0 +1,43 @@
+.login-form {
+    margin: 0px 50px 50px 35px;
+  }
+  .login-form form {
+    margin-bottom: 15px;
+    background:rgba(112, 241, 116, 0.6);
+    box-shadow: 0px 0px 20px 16px rgba(13, 116, 15, 0.5);
+    padding: 80px;
+    border: none;
+  }
+ .login-form form:hover{
+    background-color:rgba(4, 148, 9, 0.6) ;
+  }
+  .login-form h2 {
+    margin: 0 0 30px;
+    text-align: center;
+    color: rgb(7, 96, 7);
+    font-weight: 800;
+    font-family:  Helvetica, Arial, sans-serif;
+  }
+  .form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+    margin-top: 25px;
+  }
+  .btn {        
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .head{
+    text-align: center;
+    color: rgb(7, 96, 7);
+    font-weight: 800;
+    font-family:  Helvetica, Arial, sans-serif;
+}
+.l-img{
+  margin-top: 55px;
+  margin-left: 0px;
+  height:500px;
+  box-shadow: 0px 0px 10px 10px rgba(47, 49, 47, 0.3);
+}

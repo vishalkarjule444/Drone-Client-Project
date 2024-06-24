@@ -1,0 +1,36 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update Manage Slider</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_about_slider" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+
+                        <label for="slider_heading">Slider Heading</label>
+                        <input type="text" class="form-control" id="slider_heading" name="slider_heading"
+                            placeholder="Enter slider heading" value="<%=slides[0].slider_heading%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_sub_heading">Slider Image</label>
+                        <input type="file" class="form-control" id="slider_sub_heading" name="slider_image">
+                    </div>
+                    
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Slider</button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <img src="/uploads/admin/<%=slides[0].slider_image%>" width="200" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <%-include("../footer.ejs")%>

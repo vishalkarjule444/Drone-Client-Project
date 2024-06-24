@@ -1,0 +1,77 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage Meet The Team</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/manage_about_team_member" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Team Member Name</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="member_name"
+                            placeholder="Team Member Name">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Team Member Profession</label>
+                        <input type="text" class="form-control" id="slider_product_image" name="member_profession"
+                            placeholder="Team Member Profession">
+                    </div>
+                    
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Team Member Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="member_image"
+                            placeholder="Counting Number" required>
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Save Team Member</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+   
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover table-striped ">
+                        <tr class="bg-primary text-white">
+                            <th>Sr No.</th>
+                            <th>Action</th>
+                            <th>Team Member Name</th>
+                            <th>Team Member Profession</th>
+                            <th>Team Member Image</th>
+
+                        </tr>
+                        <% for(var i=0;i<members.length;i++){%>
+                            <tr>
+                                <td><%=i+1%></td>
+                                <td style="white-space: nowrap;">
+                                    <a href="/update_about_team/<%=members[i].about_team_member_id%>">
+                                        <button class="btn bg-primary m-0 btn-sm"><i class="fa fa-edit"></i></button>
+                                    </a><a href="/delete_about_team/<%=members[i].about_team_member_id%>">
+                                        <button class="btn bg-danger btn-sm m-0" onclick="return confirm('Are You Sure?')"><i class="fa fa-trash"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%=members[i].member_name%>
+                                </td>
+                                <td>
+                                    <%=members[i].member_profession%>
+                                </td>
+                                
+                                <td>
+                                <img src="uploads/admin/<%=members[0].member_image%>" width="80" alt="">
+
+                                </td>
+                            </tr>
+                            <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%-include("../footer.ejs")%>

@@ -1,0 +1,32 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Service Card</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/update_service_card" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="hidden" name="service_card_id" value="<%=service_card_info[0].service_card_id%>">
+                <label for=""> Service Card Title</label>
+                <input type="text" name="service_card_title" class="form-control" value="<%=service_card_info[0].service_card_title%>"  >
+            </div>
+            <div class="col-md-6">
+                <label for=""> Service Card Image</label>
+                <input type="file" name="service_card_image"  class="form-control" value="<%=service_card_info[0].service_card_image%>"  required>
+                
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+  
+<%-include("../footer.ejs")%>

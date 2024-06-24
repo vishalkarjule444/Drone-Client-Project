@@ -1,0 +1,57 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage We Work With</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/save_contact_www" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Company Name</label>
+                <input type="text" name="company_name" class="form-control" >
+            </div>
+            <div class="col-md-6">
+                <label for="">Company Logo</label>
+                <input type="file" name="company_logo" class="form-control" required >
+                <p>*Note - file must be png</p>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center ">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>S.N.</th>
+            <th>Company Name</th>
+            <th>Company Logo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<contact_www_list.length;i++) { %>
+                <tr>
+                    <td style="width: 3%; white-space: nowrap;">
+                            
+                        <a href="/edit_contact_www/<%=contact_www_list[i].contact_www_id%>"><button class="bg-info"><i class="fa fa-edit text-white"></i></button></a>
+                        <a href="/delete_contact_www/<%=contact_www_list[i].contact_www_id%>" onclick="return confirm('ARE YOU SURE...?')"> <button class="bg-danger"><i class="fa fa-trash text-white"></i></button></a>
+    
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=contact_www_list[i].company_name%></td>
+                    <td><img src="uploads/admin/contact/we work with/<%=contact_www_list[i].company_logo%>" alt="1" style="width: 120px;"></td>
+                </tr>
+       <% } %>
+    </tbody>
+</table>
+
+<%-include("../footer.ejs")%>

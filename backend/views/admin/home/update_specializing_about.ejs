@@ -1,0 +1,37 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <h1 class="heading">Update About Specializing Lists</h1>
+            </div>
+        </div>
+    </div>
+    <form action="/update_sepecializing" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row mt-2 mb-2">
+            <div class="col-md-4">
+                About Specializing Heading
+                <input type="hidden" name="about_specializing_id" value="<%=specials[0].about_specializing_id%>" id="">
+                <input type="text" name="about_specializing_heading" class="form-control" placeholder="About Specializing Heading" value="<%=specials[0].about_specializing_heading%>">
+                </div>
+            <div class="col-md-4">
+                About Specializing Description
+                <textarea name="about_specializing_descption" class="form-control" placeholder="About Specializing Description" rows="2" id=""><%=specials[0].about_specializing_descption%></textarea>
+                </div>
+            <div class="col-md-4">
+                About Specializing Image
+                <input type="file" name="about_specializing_image" class="form-control" required>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn bg-primary">Update Specializing</button>
+            </div>
+
+            <div class="col-md-12" style="display: flex;justify-content: center;">
+                <img src="/uploads/admin/<%=specials[0].about_specializing_image%>" width="150" alt="">
+            </div>
+        </div>
+    </div>
+</form>
+
+<%-include("../footer.ejs")%>

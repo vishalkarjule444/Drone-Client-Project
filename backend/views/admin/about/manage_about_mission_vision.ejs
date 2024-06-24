@@ -1,0 +1,95 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update Mission</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_about_mission" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Mission Heading</label>
+                        <input type="text" class="form-control" id="slider_heading" name="mission_heading"
+                            placeholder="Enter slider heading" value="<%=missions[0].mission_heading%>">
+                    </div>
+                    
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Mission Description</label>
+                        <textarea type="text" class="form-control" id="slider_heading" name="slider_description"
+                            placeholder="Enter slider heading" rows="1"><%=missions[0].slider_description%></textarea>
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_sub_heading">Mission Image</label>
+                        <input type="file" class="form-control" id="slider_sub_heading" name="mission_image" >
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                    <img src="uploads/admin/<%=missions[0].mission_image%>" width="150" alt="">
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Mission Sub Description</label>
+                        <textarea type="text" class="form-control" id="slider_heading" name="missin_sub_description"
+                            placeholder="Enter slider heading" rows="1"><%=missions[0].missin_sub_description%></textarea>
+                    </div>
+
+                    
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Mission</button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                       
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Update Vision</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_about_vision" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Vision Heading</label>
+                        <input type="text" class="form-control" id="slider_heading" name="vision_heading"
+                            placeholder="Enter slider heading" value="<%=vissions[0].vision_heading%>">
+                    </div>
+                    
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Vision Description</label>
+                        <textarea type="text" class="form-control" id="slider_heading" name="vision_description"
+                            placeholder="Enter slider heading" rows="1"><%=vissions[0].vision_description%></textarea>
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_sub_heading">Vision Image</label>
+                        <input type="file" class="form-control" id="slider_sub_heading" name="vision_image">
+                    </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <img src="uploads/admin/<%=vissions[0].vision_image%>" width="150" alt="">
+                        </div>
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_heading">Vision Sub Description</label>
+                        <textarea type="text" class="form-control" id="slider_heading" name="vision_sub_description"
+                            placeholder="Enter slider heading" rows="1"><%=vissions[0].vision_sub_description%></textarea>
+                    </div>
+
+                    
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Vision</button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                       
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <%-include("../footer.ejs")%>

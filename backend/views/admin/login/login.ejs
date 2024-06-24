@@ -1,0 +1,51 @@
+<%-include("navbar.ejs")%>
+<style>
+     .form-control
+    {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+</style>
+<div class="container">
+    <div class="row d-flex justify-content-center align-item-center">
+        <div class="col-md-12 login ">
+        <div class="col-md-8 ">
+            <h2 class="text-white">Admin Login</h2>
+            <h3 class="text-yellow">Bharat Drone </h3>
+            <p class="text-gray mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam tempore natus error modi vero officia sit quibusdam repellendus porro? Exercitationem facilis, odio alias corrupti consequatur .
+               
+            </p>
+            <span class="text-gray ">
+                Call/Whatspp +919011144920
+            </span>
+            <p class="text-gray ">Visit Our Website a2zinfotechs.com</p>
+            
+        </div>
+
+        <div class="col-md-4">
+            <form action="/login_account" method="post">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 p-5 mt-5 border shadow bg-light">
+                           
+                
+                            <label for="">Enter Email</label>
+                            <input type="email" name="admin_email" class="form-control" placeholder="Your Email">
+                            <br>
+                            <label for="">Enter Password</label>
+                            <input type="password" name="admin_password" class="form-control" placeholder="Password">
+                            <br>
+                        
+                            <button class="btn ">Login Now</button>
+                       
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<%-include("footer.ejs")%>

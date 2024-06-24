@@ -1,0 +1,52 @@
+<%-include("../navbar.ejs")%>
+<%-include("../header.ejs")%>
+    <div class="container-fluid heading">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manage Gallery Images</h2>
+            </div>
+        </div>
+    </div>
+
+    <form action="/save_gallery_image" method="post" enctype="multipart/form-data" class="mt-5  mb-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-6">
+                <label for="">Gallery Image</label>
+                <input type="file" name="gallery_image"  class="form-control"  required>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button class="btn bg-">Save</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>S.N.</th>
+            <th>Title</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i<gallery_image_list.length;i++) {%>
+            <tr>
+                <td style="width: 3%; white-space: nowrap;">
+                            
+                    <a href="/edit_gallery_image/<%=gallery_image_list[i].gallery_image_id%>"><button class="bg-info"><i class="fa fa-edit text-white"></i></button></a>
+                    <a href="/delete_gallery_image/<%=gallery_image_list[i].gallery_image_id%>" onclick="return confirm('ARE YOU SURE...?')"> <button class="bg-danger"><i class="fa fa-trash text-white"></i></button></a>
+
+                </td>
+                <td><%=i+1%></td>
+                <td><%=gallery_image_list[i].gallery_image%></td>
+                <td><img src="uploads/admin/gallery/images/<%=gallery_image_list[i].gallery_image%>" alt="" style="height:120px; width: 50%;" ></td>
+            </tr>
+       <% } %>
+    </tbody>
+</table>
+  
+<%-include("../footer.ejs")%>

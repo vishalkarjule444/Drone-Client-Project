@@ -1,0 +1,69 @@
+<%-include("../navbar.ejs")%>
+    <%-include("../header.ejs")%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="heading">Manage Slider</h1>
+                </div>
+            </div>
+        </div>
+        <form action="/update_home_slider" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_heading">Slider Heading</label>
+                        <input type="hidden" name="home_slider_id" value="<%=slides[0].home_slider_id%>">
+                        <input type="text" class="form-control" id="slider_heading" name="slider_heading"
+                            placeholder="Enter slider heading" value="<%=slides[0].slider_heading%>">
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-1">
+                        <label for="slider_sub_heading">Slider Sub Heading</label>
+                        <input type="text" class="form-control" id="slider_sub_heading" name="slider_sub_heading"
+                            placeholder="Enter slider sub heading" value="<%=slides[0].slider_sub_heading%>">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_button_text">Slider Button Text</label>
+                        <input type="text" class="form-control" id="slider_button_text" name="slider_button_text"
+                            placeholder="Enter button text" value="<%=slides[0].slider_button_text%>">
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_name">Slider Product Name</label>
+                        <select class="form-control" id="slider_product_name" name="slider_product_name" value="<%=slides[0].slider_product_name%>">
+                            <% for(var j=0;j<products.length;j++){%>
+                                <option value="<%=products[j].product_id%>"
+                                     <%=(products[j].product_id==slides[0].slider_product_name)?'selected':''%>
+                                     ><%=products[j].product_category%></option>
+                                <%}%>
+                            </select>
+                    </div>
+
+                    <div class="col-md-4 mt-2 mb-1">
+                        <label for="slider_product_image">Slider Image</label>
+                        <input type="file" class="form-control" id="slider_product_image" name="slider_product_image"
+                            placeholder="Enter image URL">
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1">
+                        <label for="slider_description">Slider Description</label>
+                        <textarea class="form-control" id="slider_description" name="slider_description"
+                            placeholder="Enter slider description"><%=slides[0].slider_description%></textarea>
+                    </div>
+
+                    <div class="col-md-12 mt-2 mb-1 text-center mb-5">
+                        <button class="btn btn-primary" type="submit">Update Slider</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="display: flex; justify-content: center;">
+                    <img src="/uploads/admin/<%=slides[0].slider_product_image%>" width="500" alt="">
+                </div>
+            </div>
+        </div>
+<%-include("../footer.ejs")%>
